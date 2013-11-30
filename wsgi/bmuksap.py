@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask
-from flask_sslify import SSLify
 
 from app.api import api
 
@@ -13,10 +12,7 @@ def create_app(debug=False):
 
     app.register_blueprint(api, url_prefix='/')
 
-    if debug:
-        return app
-    else:
-        return SSLify(app)
+    return app
 
 
 if __name__ == '__main__':
