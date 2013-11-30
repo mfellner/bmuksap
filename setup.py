@@ -1,10 +1,10 @@
 from setuptools import setup
 
-setup(name='YourAppName',
-      version='1.0',
-      description='OpenShift App',
-      author='Your Name',
-      author_email='example@example.com',
-      url='http://www.python.org/sigs/distutils-sig/',
-#      install_requires=['Django>=1.3'],
+setup(name='bmuksap',
+      version='0.1',
+      description='BMUK SAP frontend',
+      author='Maximilian Fellner',
+      author_email='max.fellner@gmail.com',
+      url='http://maximilianfellner.eu',
+     install_requires=['Flask>=0.10'],
      )
