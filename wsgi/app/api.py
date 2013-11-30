@@ -37,7 +37,8 @@ def pdf():
         session['username'] = request.form['inputUsername'].split('@')[0]
         session['domain'] = request.form['inputUsername'].split('@')[1]
         session['password'] = request.form['inputPassword']
-        return render_template('pdf.html', a=session['username'], b=session['domain'], c=session['password'])
+        # return render_template('pdf.html')
+        return redirect('/pdf/result.pdf', 302)
 
 
 @api.route('/pdf/result.pdf')
@@ -47,20 +48,14 @@ def pdf_file():
 
     try:
         raw_pdf = load_raw_pdf(session)
-        clear_session()
         return Response(raw_pdf, mimetype='application/pdf')
     except BmukSapException as error:
         return Response(error.message, mimetype='text/html')
+    finally:
+        clear_session()
 
 
 def clear_session():
     session.pop('username', None)
     session.pop('domain', None)
     session.pop('password', None)
-
-
-    # user_data = {
-    #     'username': '00051238',
-    #     'domain': 'bmukk.gv.at',
-    #     'password': 'broesel2000'
-    # }
