@@ -5,6 +5,8 @@ from flask import Blueprint, Response, render_template, request, redirect, sessi
 from app.control import BmukSapException, load_raw_pdf
 
 
+DIRECT_DOWNLOAD = True
+
 bp = Blueprint('errors', __name__)
 
 
@@ -25,6 +27,7 @@ api = Blueprint('api', __name__)
 
 @api.route('/')
 def login():
+    clear_session()
     return render_template('login.html')
 
 
@@ -37,8 +40,11 @@ def pdf():
         session['username'] = request.form['inputUsername'].split('@')[0]
         session['domain'] = request.form['inputUsername'].split('@')[1]
         session['password'] = request.form['inputPassword']
-        # return render_template('pdf.html')
-        return redirect('/pdf/result.pdf', 302)
+
+        if DIRECT_DOWNLOAD:
+            return redirect('/pdf/result.pdf', 302)
+        else:
+            return render_template('pdf.html')
 
 
 @api.route('/pdf/result.pdf')
@@ -50,7 +56,10 @@ def pdf_file():
         raw_pdf = load_raw_pdf(session)
         return Response(raw_pdf, mimetype='application/pdf')
     except BmukSapException as error:
-        return Response(error.message, mimetype='text/html')
+        if DIRECT_DOWNLOAD:
+            return render_template('error.html', error=error.message)
+        else:
+            return Response(error.message, mimetype='text/html')
     finally:
         clear_session()
 

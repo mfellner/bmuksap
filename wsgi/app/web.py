@@ -97,7 +97,9 @@ class PDFDownloader:
 
         # GET portal page.
         try:
-            self.__open_url(PORTAL_URL)
+            result = self.__open_url(PORTAL_URL)
+            if not PORTAL_URL in result.geturl():
+                raise PDFDownloaderException('Login failed.')
         except urllib2.URLError as error:
             raise PDFDownloaderException(error.message)
 
