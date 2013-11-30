@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='bmuksap',
+setup(name='app',
       version='0.1',
       description='BMUK SAP frontend',
       author='Maximilian Fellner',

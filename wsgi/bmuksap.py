@@ -2,7 +2,7 @@
 
 from flask import Flask
 
-from bmuksap.api import api
+from app.api import api
 
 
 def create_app(debug=False):
