@@ -1,22 +1,43 @@
+/*!
+ * Copyright (c) 2013, Maximilian Fellner
+ */
 
+html,
+body {
+    height: 100%;
+}
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+body {
+    background-color: #eeeeee;
+}
 
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
 
+/* Set the fixed height of the footer here */
+#footer {
+    height: 60px;
+    background-color: #ffffff;
+    color: #747474;
+    padding: 20px 0 0 20px;
+}
 
+ul.parsley-error-list {
+    list-style: none;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0.5em 0 0 0.5em;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}

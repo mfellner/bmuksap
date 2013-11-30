@@ -2,15 +2,17 @@
 
 from flask import Flask
 
-from app.api import api
+from app.api import bp, api
 
 
 def create_app(debug=False):
     app = Flask(__name__)
     app.config.from_object(__name__)
+    app.secret_key = 'debug_key'  # TODO: change key
     app.debug = debug
 
-    app.register_blueprint(api, url_prefix='/')
+    app.register_blueprint(bp)
+    app.register_blueprint(api)
 
     return app
 

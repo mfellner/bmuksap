@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}BMUKK SAP{% endblock %}
+{% block body %}
+{% if error %}
+<div class="alert alert-error">
+  <a class="close" data-dismiss="alert" href="#">×</a>Ein Fehler ist aufgetreten!
+</div>
+{% endif %}
+<form method="POST" action="pdf" accept-charset="UTF-8" class="form-horizontal" role="form" parsley-validate>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <h2>Bitte melden Sie sich an.</h2>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputUsername" class="col-sm-2 control-label">Benutzername</label>
+
+    <div class="col-sm-6">
+      <input type="email" class="form-control" id="inputUsername" name="inputUsername" placeholder="id@bmukk.gv.at"
+             parsley-type="email" parsley-trigger="focusout" parsley-required="true">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">Passwort</label>
+
+    <div class="col-sm-6">
+      <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Passwort"
+             parsley-trigger="focusout" parsley-minlength="1" parsley-maxlength="60" parsley-required="true">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-default">Anmelden</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/vendor/i18n/messages.de.js') }}"></script>
+<script src="{{ url_for('static', filename='js/vendor/parsley.min.js') }}"></script>
+{% endblock %}

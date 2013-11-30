@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block title %}PDF{% endblock %}
+{% block body %}
+<h1>PDF</h1>
+<object data="/pdf/result.pdf" type="application/pdf" width="100%" height="100%">
+  <p>Ihr Browser scheint kein PDF Plugin zu besitzen. Sie können <a href="/pdf/result.pdf">hier klicken</a> um das PDF
+    herunterzuladen.</p>
+</object>
+{% endblock %}
