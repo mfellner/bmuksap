@@ -13,3 +13,9 @@ def create_app(debug=False):
     app.register_blueprint(api, url_prefix='/')
 
     return app
+
+
+if __name__ == '__main__':
+    app = create_app(debug=True)
+    app.test_request_context().push()
+    app.run()
