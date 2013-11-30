@@ -6,5 +6,5 @@ setup(name='app',
       author='Maximilian Fellner',
       author_email='max.fellner@gmail.com',
       url='http://maximilianfellner.eu',
-     install_requires=['Flask>=0.10'],
+     install_requires=['Flask>=0.10', 'Flask-SSLify>=0.1.4'],
      )
