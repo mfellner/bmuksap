@@ -56,3 +56,7 @@ docs/_build/
 # Virtualenv
 .Python
 include/
+
+# IntelliJ IDEA
+*.iml
+.idea/
