@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+
 
   <script src="{{ url_for('static', filename='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
 </head>
@@ -28,7 +31,7 @@
   improve your experience.</p>
 <![endif]-->
 <div id="wrap">
-  <div class="container">
+  <div id="page-content" class="container">
     {% block body %}
     {% endblock %}
     <hr>
